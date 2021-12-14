@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Créer une catégorie<h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.titre, {'attr': {'placeholder': "Ajouter un titre"}}) }}
+    {{ form_row(form.contenu, {'attr': {'placeholder': "Ajouter une description"}}) }}
+    {{ form_row(form.image, {'attr': {'placeholder': "Ajouter une image"}}) }}
+
+    <button type="submit" class="btn btn-sucess">
+    {% if editMode %}
+    Modifier
+    {% else %}
+    Enregistrer
+    {% endif %}
+    </button>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

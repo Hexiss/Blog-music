@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}BlogMusic{% endblock %}
+		</title>
+		<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+		{% block stylesheets %}
+			{#{{ encore_entry_link_tags('app') }}#}
+		{% endblock %}
+
+		{% block javascripts %}
+			{#{{ encore_entry_script_tags('app') }}#}
+		{% endblock %}
+	</head>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">BlogMusic</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarColor03">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link " href="/">Acceuil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/categorie">Catégorie</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('nouveau') }}">Créer une catégorie</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('inscription') }}">S'inscrire</a>
+					</li>
+					{% if not app.user %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+					</li>
+					{% else %}
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>
+		</nav>
+		<div class="contenair"> 
+      {% block body %}{% endblock %}
+			</div>
+		</body>
+	</html>

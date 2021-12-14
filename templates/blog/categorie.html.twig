@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<h1>Réserver un cours<h1>
+
+			<section class="articles">
+				{% for categorie in categories %}
+					<article>
+						<h2>{{ categorie.titre }}</h2>
+						<div class="content">
+							<img src="{{ categorie.image }}" alt="" width="180" height="130">
+							<p>
+								{{ categorie.contenu | raw }}
+							</p>
+							<a href="{{path('cours', {'id' : categorie.id} )}}" class="btn btn-info" role="button">Voir plus</a>
+						</div>
+					</article>
+                    
+				{% endfor %}
+			</section>
+		{% endblock %}
